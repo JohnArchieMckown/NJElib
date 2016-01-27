@@ -2,11 +2,15 @@
 import os, sys, re, string
 import njelib
 def main():
-    nje=njelib.NJE("DEV1","LIH1")
-    connection=nje.session(host="10.170.30.10",port=175)
+    print "Hello, John"
+    nje=njelib.NJE("LNX1","LIHT")
+    nje.set_debuglevel(1)
+    connection=nje.session(host="10.170.30.101",port=175)
+    print "Connection LIHT = ", connection
     if not connection:
-        print "Connection to LIH1 failed"
+        print "Connection to LIHT failed"
         return 
-    nje.sendmessage("Arf! Arf!")
+    nje.sendMessage("Arf! Arf!")
+    nje.disconnect()
     return
-
+main()
